@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTRC Network Access - Welcome</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>BTRC Sustainable Internet Access System</h1>
+        <p class="message">Connect • Pay • Browse</p>
+        <a href="plans.html" class="btn btn-primary btn-large">Get Access</a>
+        <a href="dashboard.html" class="btn btn-secondary btn-large">Check My Time</a>
+        <p style="margin-top: 30px; font-size: 0.9em; color: #666;"><a href="admin.html">Admin Login</a></p>
+    </div>
+    <script>
+        // Check session on load
+        if (localStorage.getItem('sessionStart')) {
+            const remaining = calculateRemainingTime();
+            if (remaining > 0) {
+                document.querySelector('.container').innerHTML += '<p style="color: #38a169; font-weight: bold;">Session Active: ' + formatTime(remaining) + '</p>';
+            }
+        }
+        
+        function calculateRemainingTime() {
+            const startTime = parseInt(localStorage.getItem('sessionStart') || 0);
+            const duration = parseInt(localStorage.getItem('totalDuration') || 0);
+            if (!startTime || !duration) return 0;
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+            return Math.max(0, duration - elapsed);
+        }
+        
+        function formatTime(seconds) {
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            const s = seconds % 60;
+            return `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+        }
+    </script>
+</body>
+</html>

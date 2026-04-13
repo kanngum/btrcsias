@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTRC Network Access - Plans</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Choose Your Plan</h2>
+        <a href="welcome.html" class="btn btn-back">&amp;lt; Back</a>
+        <div class="plans-grid">
+            <div class="plan-card" onclick="selectPlan('1h', 100)">
+                <h3>1 Hour</h3>
+                <p class="price">100 CFA</p>
+                <p>Fast access for quick browsing</p>
+            </div>
+            <div class="plan-card" onclick="selectPlan('3h', 250)">
+                <h3>3 Hours</h3>
+                <p class="price">250 CFA</p>
+                <p>Perfect for work or streaming</p>
+            </div>
+            <div class="plan-card" onclick="selectPlan('1d', 800)">
+                <h3>1 Day</h3>
+                <p class="price">800 CFA</p>
+                <p>Full day unlimited access</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function selectPlan(plan, price) {
+            localStorage.setItem('currentPlan', plan);
+            localStorage.setItem('currentPrice', price);
+            window.location.href = 'payment.html';
+        }
+    </script>
+</body>
+</html>

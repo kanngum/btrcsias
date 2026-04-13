@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTRC Network Access - Payment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Payment</h2>
+        <div class="selected-plan">
+            <p><strong>Plan:</strong> <span id="plan-name"></span></p>
+            <p><strong>Price:</strong> <span id="plan-price"></span> CFA</p>
+        </div>
+        <form class="input-group">
+            <label>Phone Number</label>
+            <input type="tel" id="phone" placeholder="+237 6XX XXX XXX" required>
+        </form>
+        <button type="button" onclick="processPayment('mobile')" class="btn btn-primary">Pay with Mobile Money</button>
+        <button type="button" onclick="processPayment('orange')" class="btn btn-primary">Pay with Orange Money</button>
+        <a href="plans.html" class="btn btn-back">&amp;lt; Back</a>
+    </div>
+    
+    <script>
+        // Load selected plan
+        document.addEventListener('DOMContentLoaded', () => {
+            const plan = localStorage.getItem('currentPlan') || '';
+            const price = localStorage.getItem('currentPrice') || '';
+            document.getElementById('plan-name').textContent = plan.toUpperCase();
+            document.getElementById('plan-price').textContent = price;
+        });
+        
+        function processPayment(method) {
+            const phone = document.getElementById('phone').value;
+            if (!phone) {
+                alert('Please enter phone number');
+                return;
+            }
+            
+            // Simulate payment
+            const btn = event.target;
+            btn.textContent = 'Processing...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                localStorage.setItem('phone', phone);
+                localStorage.setItem('paymentMethod', method);
+                window.location.href = 'success.html';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
