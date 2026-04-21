@@ -3,12 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BTRC Network Access</title>
-    <meta http-equiv="refresh" content="0; url=welcome.html">
-</head>
-<body>
-    <p>Redirecting to WiFi Access Portal...</p>
-
     <title>btrcsias</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
@@ -34,7 +28,7 @@
         }
 
         .checkout-card {
-            background: var(--light-grey);
+            background: var(--white);
             width: 100%;
             max-width: 440px;
             padding: 40px;
@@ -128,7 +122,7 @@
 
 <div class="checkout-card">
     <div class="header">
-        <h1>BTRC <span color: --orange>2026</span> <br>MAKE PAYMENT</h1>
+        <h1>BTRC <span>2026</span> <br>MAKE PAYMENT</h1>
         <p>Choose your method of payment.</p>
     </div>
 
@@ -222,225 +216,5 @@
     }
 </script>
 
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>btrcsias</title>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        :root {
-            --orange: #f9a01b;
-            --light-grey: #1f1f1f;
-            --dark-grey: #050505;
-            --text-dim: #888;
-            --white: #f4f4f9;
-            --success: #34c759;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
-            background-color: var(--light-grey);
-            color: var(--dark-grey);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .checkout-card {
-            background: var(--light-grey);
-            width: 100%;
-            max-width: 440px;
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        }
-
-        .header { text-align: center; margin-bottom: 32px; }
-        .header h1 { font-size: 24px; font-weight: 600; margin: 0; letter-spacing: -0.5px; }
-        .header p { color: #86868b; font-size: 14px; margin-top: 8px; }
-        .header h1 span {color: var(--orange);}
-
-        .payment-options {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        .option {
-            display: flex;
-            align-items: center;
-            padding: 16px;
-            border: 1.5px solid var(--text-dim);
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .option:hover { border-color: var(--orange); background: #fbfbff; }
-        .option.active { border-color: var(--orange); background: #f5faff; ring: 2px solid var(--orange); }
-
-        .icon-container {
-            width: 40px;
-            height: 40px;
-            background: #f0f0f2;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 16px;
-        }
-
-        .option-text { flex-grow: 1; font-weight: 500; font-size: 15px; }
-
-        /* Forms */
-        .details-area { display: none; margin-top: 24px; animation: slideDown 0.3s ease-out; }
-        .details-area.active { display: block; }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .input-group { margin-bottom: 16px; }
-        label { display: block; font-size: 12px; font-weight: 600; color: #86868b; margin-bottom: 6px; text-transform: uppercase; }
-        input, select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid var(--text-dim);
-            border-radius: 8px;
-            font-size: 16px;
-            box-sizing: border-box;
-            background: #fafafa;
-        }
-
-        input:focus { outline: none; border-color: var(--orange); background: #fff; }
-
-        .btn-main {
-            width: 100%;
-            padding: 16px;
-            background: var(--orange);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: opacity 0.2s;
-            margin-top: 20px;
-        }
-
-        .btn-main:hover { opacity: 0.9; }
-
-        .btn-admin { background: var(--dark-grey); }
-
-        .footer-note { text-align: center; font-size: 12px; color: #86868b; margin-top: 24px; display: flex; align-items: center; justify-content: center; gap: 4px;}
-    </style>
-</head>
-<body>
-
-<div class="checkout-card">
-    <div class="header">
-        <h1>BTRC <span color: --orange>2026</span> <br>MAKE PAYMENT</h1>
-        <p>Choose your method of payment.</p>
-    </div>
-
-    <div class="payment-options">
-        <div class="option active" onclick="switchMethod('momo', this)">
-            <div class="icon-container"><i data-lucide="smartphone"></i></div>
-            <div class="option-text">MoMo / Orange Money</div>
-            <i data-lucide="chevron-right" size="18" color="#86868b"></i>
-        </div>
-
-        <div class="option" onclick="switchMethod('card', this)">
-            <div class="icon-container"><i data-lucide="credit-card"></i></div>
-            <div class="option-text">Credit / Debit Card</div>
-            <i data-lucide="chevron-right" size="18" color="#86868b"></i>
-        </div>
-
-        <div class="option" onclick="switchMethod('cash', this)">
-            <div class="icon-container"><i data-lucide="banknote"></i></div>
-            <div class="option-text">Paid in Cash</div>
-            <i data-lucide="chevron-right" size="18" color="#86868b"></i>
-        </div>
-    </div>
-
-    <div id="momo-form" class="details-area active">
-        <div class="input-group">
-            <label>Carrier</label>
-            <select>
-                <option>Orange Money (OM)</option>
-                <option>MTN MoMo</option>
-            </select>
-        </div>
-        <div class="input-group">
-            <label>Phone Number</label>
-            <input type="tel" placeholder="+237 6XX XXX XXX">
-        </div>
-        <button class="btn-main" onclick="handlePayment()">Confirm Payment</button>
-    </div>
-
-    <div id="card-form" class="details-area">
-        <div class="input-group">
-            <label>Card Number</label>
-            <input type="text" placeholder="XXXX XXXX XXXX XXXX">
-        </div>
-        <div style="display: flex; gap: 12px;">
-            <div class="input-group" style="flex: 2;">
-                <label>Expiry</label>
-                <input type="text" placeholder="MM / YY">
-            </div>
-            <div class="input-group" style="flex: 1;">
-                <label>CVC</label>
-                <input type="text" placeholder="123">
-            </div>
-        </div>
-        <button class="btn-main" onclick="handlePayment()">Pay with Card</button>
-    </div>
-
-    <div id="cash-form" class="details-area">
-        <p style="text-align: center; color: #6e6e73; font-size: 14px;">Cash payments are handled manually by our administrators.</p>
-        <button class="btn-main btn-admin" onclick="redirectToAdmin()">Go to Admin Dashboard</button>
-    </div>
-
-    <div class="footer-note">
-        <i data-lucide="lock" size="12"></i> 
-        Encrypted & Secure Transaction
-    </div>
-</div>
-
-<script>
-    // Initialize Lucide Icons
-    lucide.createIcons();
-
-    function switchMethod(method, element) {
-        // Update UI selection
-        document.querySelectorAll('.option').forEach(opt => opt.classList.remove('active'));
-        element.classList.add('active');
-
-        // Toggle Form Visibility
-        document.querySelectorAll('.details-area').forEach(form => form.classList.remove('active'));
-        document.getElementById(`${method}-form`).classList.add('active');
-    }
-
-    function handlePayment() {
-        alert("Processing digital payment... Please wait.");
-    }
-
-    function redirectToAdmin() {
-        // You can change this URL to your actual admin dashboard path
-        const adminUrl = "/admin-dashboard";
-        alert("Redirecting to Admin Dashboard for cash processing...");
-        window.location.href = adminUrl; 
-    }
-</script>
-
->>>>>>> 6e55f77 (payment page added)
 </body>
 </html>
